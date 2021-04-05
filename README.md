@@ -2,7 +2,7 @@
 ### Analysing Civic Issue Complaints made by Citizens on Twitter
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Naagarik is a machine learning framework, which analyses real-time data obtained from social media and classify them into civic issue categories, in order to understand citizen proactivity on social media platforms and help improve responsiveness of local government by making categorised data accessible.
+Naagarik is a machine learning framework, which analyses real-time data obtained from social media and classifies them into civic issue categories, in order to understand citizen proactivity on social media platforms and help improve responsiveness of local government by making categorised data accessible.
 
 ### Dataset
 - Reap Benefit's Neighbourhood Dashboard data
@@ -16,12 +16,12 @@ Run ```pip install -r requirements.txt```
 
 ### Run 
 
-To test the framework on a text file of inputs, ```testdata.txt```, run ```python framework.py```
+To test the framework on a text file of inputs, ```data/testdata.txt```, run ```python framework.py```
 
-To test it on real-time streaming tweets, run ```python streaming.py```
+To test it on real-time streaming tweets, run ```python streaming.py```. Please note that Twitter Developer credentials are required to run this file.
 
 Implemented using Python.
 
 ### Authors:
-- Shriya Shankar
 - Adithi Satish
+- Shriya Shankar
