@@ -8,12 +8,12 @@ import pandas as pd
 import preprocessor as preprocess
 from framework import civic_framework
 
+# Access Credentials from Twitter
+access_token = 'add-access-token'
+access_token_secret = 'add-access-token-secret'
 
-access_token = '995926266032242688-Nm0o3MJLqDywYV08HfIeKkIWO9ryrLA'
-access_token_secret = 'o5qrF3MdtXDRmKX1oPk8mISZyXYkUppJlNf9noWaoCaSm'
-
-consumer_key = 'AO2Gys8oVrF8NP7jr081XUnIO'
-consumer_key_secret = '1HDS8CNsRE9iaaZLb1Ye9jjTL4Pc10EDgvbF7KJxxWECkjjhvh'
+consumer_key = 'add-consumer-key'
+consumer_key_secret = 'add-consumer-key-secret'
 
 tweets_data = []
 

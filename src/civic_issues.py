@@ -15,7 +15,7 @@ import pickle
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
-from metrics import model_metrics, auc_roc
+from src.metrics import model_metrics, auc_roc
 
 # dataset = pd.read_csv("finalData.csv")
 # dataset = dataset[dataset['civic_issue']==1]

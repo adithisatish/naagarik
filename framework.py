@@ -1,9 +1,9 @@
 import pandas as pd 
 import numpy as np 
 import os
-import civic_issues as ci 
+import src.civic_issues as ci 
 # import streamingtweets as st 
-import metrics 
+import src.metrics as metrics
 from sklearn.model_selection import train_test_split
 import pickle
 import time
@@ -18,7 +18,7 @@ def civic_framework(test_df, tweet_or_text = 0):
 
     # print(test_df.head())
 
-    dataset = pd.read_csv("finalData.csv")
+    dataset = pd.read_csv("data/finalData.csv")
     dataset.drop_duplicates(subset='description',inplace=True,keep=False)
 
     dataset = ci.preprocess(0, dataset)
@@ -31,7 +31,7 @@ def civic_framework(test_df, tweet_or_text = 0):
 
     # logreg_model = ci.logreg_tune(train_tfidf, y_train)
 
-    filename = 'logRegclassifier.sav'
+    filename = 'src/logRegclassifier.sav'
     logreg_model = pickle.load(open(filename, 'rb'))
     prediction = logreg_model.predict(test_tfidf)
 
@@ -54,7 +54,7 @@ def civic_framework(test_df, tweet_or_text = 0):
     train_tfidf, test_tfidf = ci.vectorize(0, list(X_train), list(civic_issue_text.processedtext))
 
     # svc_model = ci.train_SVC(train_tfidf, y_train)
-    filename = 'linearkernelSVC.sav'
+    filename = 'src/linearkernelSVC.sav'
     svc_model = pickle.load(open(filename, 'rb'))
     prediction = svc_model.predict(test_tfidf)
 
@@ -73,7 +73,7 @@ def civic_framework(test_df, tweet_or_text = 0):
 
 if __name__=="__main__":
     start_time = time.time()
-    f = open("testdata.txt","r")
+    f = open("data/testdata.txt","r")
     text = [i.rstrip() for i in f.readlines()]
 
     df_test = pd.DataFrame()
