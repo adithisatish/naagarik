@@ -22,6 +22,12 @@ To test it on real-time streaming tweets, run ```python streaming.py```. Please 
 
 Implemented using Python.
 
+### Citation
+
+If you use this repository for research, please cite the following reference paper:
+
+```A. Satish, S. B. Shankar and K. N. Kavitha, "Naagarik: A Machine Learning Framework for Intelligent Analysis of Civic Issues," 2021 Asian Conference on Innovation in Technology (ASIANCON), 2021, pp. 1-6, doi: 10.1109/ASIANCON51346.2021.9544777.}```
+
 ### Authors:
 - Adithi Satish
 - Shriya Shankar
