@@ -7,13 +7,14 @@ import json
 import pandas as pd
 import preprocessor as preprocess
 from framework import civic_framework
+import time
 
 # Access Credentials from Twitter
-access_token = 'add-access-token'
-access_token_secret = 'add-access-token-secret'
+access_token = '995926266032242688-Nm0o3MJLqDywYV08HfIeKkIWO9ryrLA'
+access_token_secret = 'o5qrF3MdtXDRmKX1oPk8mISZyXYkUppJlNf9noWaoCaSm'
 
-consumer_key = 'add-consumer-key'
-consumer_key_secret = 'add-consumer-key-secret'
+consumer_key = 'AO2Gys8oVrF8NP7jr081XUnIO'
+consumer_key_secret = '1HDS8CNsRE9iaaZLb1Ye9jjTL4Pc10EDgvbF7KJxxWECkjjhvh'
 
 tweets_data = []
 
@@ -57,19 +58,25 @@ def convert_to_df():
     # tweets.head()
 
 # stream(0,10)
+if __name__ == "__main__":
+    start_time = time.time()
+    tweet_count = 0
+    n_tweets = int(input("Enter number of tweets to scrape: "))
 
-tweet_count = 0
-n_tweets = int(input("Enter number of tweets to scrape: "))
+    l = StdOutListener()
+    auth = OAuthHandler(consumer_key, consumer_key_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    stream = Stream(auth, l)
+    stream.filter(locations=[77.148514,12.733452,78.015747,13.141672])
 
-l = StdOutListener()
-auth = OAuthHandler(consumer_key, consumer_key_secret)
-auth.set_access_token(access_token, access_token_secret)
-stream = Stream(auth, l)
-stream.filter(locations=[77.148514,12.733452,78.015747,13.141672])
+    tweets = convert_to_df()
+    tweets['description'] = tweets['description'].apply(clean_tweets)
 
-tweets = convert_to_df()
-tweets['description'] = tweets['description'].apply(clean_tweets)
+    # print(tweets.head())
 
-# print(tweets.head())
+    civic_framework(tweets)
+    end_time = time.time()
 
-civic_framework(tweets)
+    time_taken = end_time - start_time
+    print("\n\n---------------------------------------------------------------------")
+    print("Time Taken: {0:.2f} seconds".format(time_taken))
